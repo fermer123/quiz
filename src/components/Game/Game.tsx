@@ -1,20 +1,28 @@
+import IQuestion from '../types/types';
 import style from './Game.module.scss';
-type IQuestion = {
-  title: string;
-  variants: Array<string>;
-  correct: number;
-};
+
 interface GameProps {
   step: number;
   setStep: (step: number) => void;
+  correct: number;
+  setCorrect: (correct: number) => void;
   question: IQuestion[];
 }
 
-const Game: React.FC<GameProps> = ({ step, setStep, question }) => {
+const Game: React.FC<GameProps> = ({
+  step,
+  setStep,
+  question,
+  correct,
+  setCorrect,
+}) => {
   const quest = question[step];
   const onClick = (idx: number) => {
     console.log('idx:', idx, 'step:', step);
     setStep(step + 1);
+    if (idx === quest.correct) {
+      setCorrect(correct + 1);
+    }
   };
   const percent = Math.round((step / question.length) * 100);
 
