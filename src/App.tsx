@@ -6,7 +6,7 @@ import './index.scss';
 
 const App: React.FC = () => {
   const [step, setStep] = useState<number>(0);
-  const question = data[step];
+  const question = data;
   return (
     <div className='App'>
       <Game question={question} step={step} setStep={setStep} />
