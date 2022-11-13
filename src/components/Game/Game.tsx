@@ -27,7 +27,7 @@ const Game: React.FC<GameProps> = ({
   const percent = Math.round((step / question.length) * 100);
 
   return (
-    <div>
+    <div className={style.container}>
       <div className={style.progress}>
         <div style={{ width: `${percent}%` }} className={style.inner}></div>
       </div>
